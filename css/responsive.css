@@ -1,0 +1,53 @@
+@media (max-width: 1100px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+  .pricing-card.featured { transform: scale(1); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .sa-two-col { grid-template-columns: 1fr; }
+  .auth-left { display: none; }
+  .auth-page { grid-template-columns: 1fr; }
+  .auth-right { padding: 40px 24px; }
+  .trial-form-card { padding: 32px 24px; }
+}
+@media (max-width: 768px) {
+  /* Landing */
+  .navbar-nav, .navbar-actions { display: none; }
+  .navbar-toggle { display: flex; }
+  .hero { padding: 80px 20px 60px; }
+  .hero-stats { gap: 24px; }
+  .hero-actions .btn-hero-gold,
+  .hero-actions .btn-hero-ghost { width: 100%; justify-content: center; }
+  .hero-actions { flex-direction: column; align-items: stretch; max-width: 320px; margin: 0 auto; }
+  .features-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .trial-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  /* Dashboard */
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main-content { margin-left: 0; }
+  .header-mobile-toggle { display: flex !important; }
+  .header-school-tag { display: none; }
+  .page-body { padding: 20px 16px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-value { font-size: 22px; }
+  .page-header { flex-direction: column; }
+  .data-section-header { flex-direction: column; align-items: flex-start; }
+  .search-input { width: 100%; }
+  .app-header { padding: 0 16px; }
+  .platform-welcome { flex-direction: column; }
+  .request-card { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 28px; letter-spacing: -0.5px; }
+  .section-title { font-size: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .modal { margin: 12px; }
+  .auth-right { padding: 28px 16px; }
+}
