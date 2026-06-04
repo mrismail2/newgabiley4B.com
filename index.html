@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Plus — Multi-School Management SaaS Platform</title>
+  <meta name="description" content="School Plus is a professional SaaS platform for schools, colleges, and academies. Manage students, payments, attendance, exams and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">SP</div>
+      School Plus
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#trial">Free Trial</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <a href="login.html" class="btn-nav-outline">Sign In</a>
+      <a href="#trial" class="btn-nav-primary">Start Free Trial</a>
+    </div>
+    <button class="navbar-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#features" onclick="document.getElementById('mobileMenu').classList.remove('open')">Features</a></li>
+    <li><a href="#how-it-works" onclick="document.getElementById('mobileMenu').classList.remove('open')">How It Works</a></li>
+    <li><a href="#pricing" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pricing</a></li>
+    <li><a href="#trial" onclick="document.getElementById('mobileMenu').classList.remove('open')">Free Trial</a></li>
+  </ul>
+  <div class="mobile-cta">
+    <a href="login.html" class="btn btn-outline">Sign In</a>
+    <a href="#trial" class="btn btn-primary" onclick="document.getElementById('mobileMenu').classList.remove('open')">Start Free Trial</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Trusted Multi-School Management Platform
+  </div>
+  <h1>Manage Every School<br>from <span class="accent">One Platform</span></h1>
+  <p class="hero-desc">School Plus is a professional SaaS platform built for schools, colleges, universities, and academies. Each institution gets its own secure dashboard with complete data isolation.</p>
+  <div class="hero-actions">
+    <a href="#trial" class="btn-hero-gold">
+      <i data-lucide="zap" style="width:18px;height:18px"></i>
+      Start 30-Day Free Trial
+    </a>
+    <a href="#how-it-works" class="btn-hero-ghost">
+      <i data-lucide="play-circle" style="width:18px;height:18px"></i>
+      See How It Works
+    </a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="value">100%</div><div class="label">Data Isolated per School</div></div>
+    <div class="hero-stat"><div class="value">5</div><div class="label">Role-Based Access Levels</div></div>
+    <div class="hero-stat"><div class="value">30</div><div class="label">Days Free Trial</div></div>
+    <div class="hero-stat"><div class="value">3</div><div class="label">Flexible Pricing Plans</div></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Platform Features</span>
+      <h2 class="section-title">Everything a School Needs,<br>All in One Place</h2>
+      <p class="section-subtitle">From student registration to payment tracking, attendance to exam results — School Plus covers the full lifecycle of school management.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon fi-blue"><i data-lucide="shield-check" style="width:24px;height:24px"></i></div>
+        <h3>Complete School Isolation</h3>
+        <p>Each school operates in its own secure environment. No school can ever access another school’s students, payments, or records. Enforced at the database level with Supabase RLS.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-purple"><i data-lucide="users" style="width:24px;height:24px"></i></div>
+        <h3>Role-Based Access Control</h3>
+        <p>Five distinct roles: Super Admin, School Admin, Teacher, Accountant, and Parent. Each role sees only what they need — nothing more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-success"><i data-lucide="credit-card" style="width:24px;height:24px"></i></div>
+        <h3>Payment Management</h3>
+        <p>Track monthly fees, record payments, generate unpaid student lists, and view monthly revenue reports. Supports paid, unpaid, partial, and free status.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-orange"><i data-lucide="calendar-check" style="width:24px;height:24px"></i></div>
+        <h3>Attendance Tracking</h3>
+        <p>Mark daily attendance by class. Track present, absent, and late. Generate attendance reports per student, class, or date range.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-pink"><i data-lucide="file-text" style="width:24px;height:24px"></i></div>
+        <h3>Exams & Results</h3>
+        <p>Create exams, enter student marks, calculate grades, and generate academic reports. Parents can view their child’s results directly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-primary"><i data-lucide="bar-chart-2" style="width:24px;height:24px"></i></div>
+        <h3>Reports & Analytics</h3>
+        <p>Export reports to PDF and Excel. School Admins get school-level reports. The Super Admin gets platform-wide analytics across all schools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Getting Started</span>
+      <h2 class="section-title">How School Plus Works</h2>
+      <p class="section-subtitle">From trial request to full school dashboard in four simple steps.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Request Free Trial</h3>
+        <p>Fill out the trial request form with your school details and select a plan. Takes less than 2 minutes.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Admin Approves</h3>
+        <p>The School Plus Super Admin reviews your request and approves it, creating your school account.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Receive Credentials</h3>
+        <p>You receive your School Admin login credentials via email. Your 30-day free trial begins immediately.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3>Manage Your School</h3>
+        <p>Add students, set up classes, track payments, record attendance, and run reports — all from your dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Simple Pricing</span>
+      <h2 class="section-title">Start Free, Scale as You Grow</h2>
+      <p class="section-subtitle">All plans include a 30-day free trial. No credit card required to start.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Basic -->
+      <div class="pricing-card">
+        <div class="pricing-plan-name">Basic</div>
+        <div class="pricing-price">
+          <span class="currency">$</span>
+          <span class="amount">10</span>
+          <span class="period">/month</span>
+        </div>
+        <div class="pricing-trial">✓ 30-day free trial included</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Up to 100 students</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Student registration</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Basic payment tracking</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Basic attendance</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> One admin account</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Simple reports</li>
+        </ul>
+        <a href="#trial" class="btn pricing-cta pricing-cta-default">Start Free Trial</a>
+      </div>
+      <!-- Standard (Featured) -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-plan-name">Standard</div>
+        <div class="pricing-price">
+          <span class="currency" style="color:rgba(255,255,255,0.7)">$</span>
+          <span class="amount">30</span>
+          <span class="period">/month</span>
+        </div>
+        <div class="pricing-trial">✓ 30-day free trial included</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Up to 500 students</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Full student management</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Payment tracking</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Attendance management</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Parent records</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Multiple user roles</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Monthly reports</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Dashboard statistics</li>
+        </ul>
+        <a href="#trial" class="btn pricing-cta pricing-cta-featured">Start Free Trial</a>
+      </div>
+      <!-- Premium -->
+      <div class="pricing-card">
+        <div class="pricing-plan-name">Premium</div>
+        <div class="pricing-price">
+          <span class="currency">$</span>
+          <span class="amount">50</span>
+          <span class="period">/month</span>
+        </div>
+        <div class="pricing-trial">✓ 30-day free trial included</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Unlimited students</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Full platform access</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Exam records & results</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Parent communication</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Advanced reports (PDF/Excel)</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Multiple admin users</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Priority support</li>
+          <li><i data-lucide="check" style="width:16px;height:16px"></i> Future SMS notifications</li>
+        </ul>
+        <a href="#trial" class="btn pricing-cta pricing-cta-default">Start Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAL FORM -->
+<section class="trial-section" id="trial">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Free Trial</span>
+      <h2 class="section-title">Request Your 30-Day Free Trial</h2>
+      <p class="section-subtitle">No credit card required. We’ll review your request and send your credentials within 24 hours.</p>
+    </div>
+    <div class="trial-form-container">
+      <div class="trial-form-card">
+        <h3>School Information</h3>
+        <p>Tell us about your institution and we’ll set up your dedicated dashboard.</p>
+        <div id="trialMsg" class="hidden"></div>
+        <form id="trialForm" novalidate>
+          <div class="trial-grid">
+            <div class="form-group full">
+              <label class="form-label" for="school_name">School / Institution Name *</label>
+              <input class="form-input" type="text" id="school_name" name="school_name" placeholder="e.g. Al-Noor Academy" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="school_type">Institution Type *</label>
+              <select class="form-select" id="school_type" name="school_type" required>
+                <option value="">Select type...</option>
+                <option value="school">School</option>
+                <option value="college">College</option>
+                <option value="university">University</option>
+                <option value="academy">Academy</option>
+                <option value="training_center">Training Center</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="student_count">Approx. Number of Students</label>
+              <select class="form-select" id="student_count" name="student_count">
+                <option value="under_100">Under 100</option>
+                <option value="100_500">100 – 500</option>
+                <option value="500_1000">500 – 1,000</option>
+                <option value="over_1000">Over 1,000</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact_name">Your Full Name *</label>
+              <input class="form-input" type="text" id="contact_name" name="contact_name" placeholder="Ahmed Hassan" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="admin@yourschool.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+252 61 234 5678">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="plan">Preferred Plan *</label>
+              <select class="form-select" id="plan" name="plan" required>
+                <option value="basic">Basic — $10/month</option>
+                <option value="standard" selected>Standard — $30/month (Recommended)</option>
+                <option value="premium">Premium — $50/month</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary trial-submit" style="width:100%;justify-content:center;padding:14px;font-size:15px;margin-top:20px;border-radius:var(--radius)">
+            <i data-lucide="send" style="width:18px;height:18px"></i>
+            Submit Trial Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <div class="logo-icon">SP</div>
+          School Plus
+        </div>
+        <p>A professional multi-school management SaaS platform. Each school gets its own secure, isolated dashboard powered by Supabase.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#trial">Free Trial</a></li>
+          <li><a href="login.html">Sign In</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>For Schools</h4>
+        <ul>
+          <li><a href="#">Student Management</a></li>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Attendance</a></li>
+          <li><a href="#">Exams</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 School Plus. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>

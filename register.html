@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Free Trial — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .register-right { overflow-y: auto; padding: 40px 60px; }
+    .register-form-wrap { max-width: 480px; margin: 0 auto; }
+    .register-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .register-grid .full { grid-column: 1/-1; }
+    @media(max-width:600px){ .register-grid{ grid-template-columns:1fr; } .register-right{ padding:28px 20px; } }
+  </style>
+</head>
+<body>
+<div class="auth-page">
+  <!-- Left Branding -->
+  <div class="auth-left">
+    <div class="auth-left-inner">
+      <div class="auth-brand">
+        <div class="logo-icon">SP</div>
+        School Plus
+      </div>
+      <div class="auth-left-content">
+        <h2>Start Your 30-Day Free Trial</h2>
+        <p>No credit card required. Get your school dashboard set up and running within 24 hours of approval.</p>
+        <ul class="auth-features">
+          <li><div class="check"><i data-lucide="clock" style="width:15px;height:15px"></i></div> 30-day free trial, no card needed</li>
+          <li><div class="check"><i data-lucide="shield-check" style="width:15px;height:15px"></i></div> Your data is 100% isolated and secure</li>
+          <li><div class="check"><i data-lucide="zap" style="width:15px;height:15px"></i></div> Dashboard ready within 24 hours</li>
+          <li><div class="check"><i data-lucide="headphones" style="width:15px;height:15px"></i></div> Full setup support included</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Form -->
+  <div class="auth-right register-right">
+    <div class="register-form-wrap">
+      <div class="auth-logo-top">
+        <div class="logo-icon">SP</div>
+        School Plus
+      </div>
+      <h2>Request Free Trial</h2>
+      <p>Fill in your school details and we’ll get you started.</p>
+
+      <div id="registerMsg" class="auth-msg hidden" style="margin-bottom:16px"></div>
+
+      <form id="registerForm" novalidate>
+        <div class="register-grid">
+          <div class="form-group full">
+            <label class="form-label">School / Institution Name *</label>
+            <input class="form-input" type="text" name="school_name" placeholder="Al-Noor Academy" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Institution Type *</label>
+            <select class="form-select" name="school_type" required>
+              <option value="">Select type...</option>
+              <option value="school">School</option>
+              <option value="college">College</option>
+              <option value="university">University</option>
+              <option value="academy">Academy</option>
+              <option value="training_center">Training Center</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Approx. Students</label>
+            <select class="form-select" name="student_count">
+              <option value="under_100">Under 100</option>
+              <option value="100_500">100 – 500</option>
+              <option value="500_1000">500 – 1,000</option>
+              <option value="over_1000">Over 1,000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Full Name *</label>
+            <input class="form-input" type="text" name="contact_name" placeholder="Ahmed Hassan" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input class="form-input" type="email" name="email" placeholder="admin@school.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-input" type="tel" name="phone" placeholder="+252 61 234 5678">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Preferred Plan *</label>
+            <select class="form-select" name="plan" required>
+              <option value="basic">Basic — $10/month (up to 100 students)</option>
+              <option value="standard" selected>Standard — $30/month (up to 500 students)</option>
+              <option value="premium">Premium — $50/month (unlimited students)</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:13px;font-size:15px;margin-top:20px;border-radius:var(--radius)">
+          <i data-lucide="send" style="width:16px;height:16px"></i>
+          Submit Trial Request
+        </button>
+      </form>
+
+      <p class="auth-footer-link" style="margin-top:20px">
+        Already have an account? <a href="login.html">Sign in</a>
+      </p>
+      <p class="auth-footer-link" style="margin-top:6px">
+        <a href="index.html">← Back to homepage</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>
