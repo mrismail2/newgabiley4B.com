@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Admin — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/super-admin.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-layout super-admin-layout">
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="header"></div>
+    <main class="page-body">
+
+      <!-- Platform Welcome Banner -->
+      <div class="platform-welcome">
+        <div>
+          <h2>🌐 Platform Dashboard <span class="super-admin-tag">Super Admin</span></h2>
+          <p>Manage all schools, trial requests, subscriptions, and platform analytics from here.</p>
+        </div>
+        <a href="trial-requests.html" class="btn btn-gold">
+          <i data-lucide="inbox" style="width:16px;height:16px"></i>
+          Review Trial Requests
+        </a>
+      </div>
+
+      <div class="page-header">
+        <div class="page-header-text">
+          <h1>Platform Overview</h1>
+          <p>Real-time statistics across all schools on the platform.</p>
+        </div>
+        <div class="page-actions">
+          <a href="platform-reports.html" class="btn btn-outline btn-sm">
+            <i data-lucide="bar-chart-2" style="width:15px;height:15px"></i>
+            Platform Reports
+          </a>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div id="statsGrid"></div>
+
+      <!-- Two-column layout -->
+      <div class="sa-two-col">
+        <!-- Recent Trial Requests -->
+        <div class="data-section">
+          <div class="data-section-header">
+            <div class="data-section-title">Recent Trial Requests</div>
+            <a href="trial-requests.html" class="btn btn-outline btn-sm">View All</a>
+          </div>
+          <div id="recentRequestsTable"></div>
+        </div>
+
+        <!-- Active Schools -->
+        <div class="data-section">
+          <div class="data-section-header">
+            <div class="data-section-title">Active Schools</div>
+            <a href="schools.html" class="btn btn-outline btn-sm">View All</a>
+          </div>
+          <div id="activeSchoolsTable"></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="components/modal.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="components/header.js"></script>
+<script src="components/statCard.js"></script>
+<script src="components/table.js"></script>
+<script src="js/super-admin.js"></script>
+<script>
+// Also render the active schools shell table
+document.addEventListener('DOMContentLoaded', () => {
+  renderTable('activeSchoolsTable', {
+    columns: [
+      { key: 'name',   label: 'School' },
+      { key: 'plan',   label: 'Plan', render: v => `<span class="plan-tag ${v}">${capitalize(v)}</span>` },
+      { key: 'status', label: 'Status', render: v => `<span class="school-status ${v}"><span class="sd"></span>${capitalize(v)}</span>` },
+    ],
+    rows: [],
+    emptyMsg: 'No active schools yet',
+  });
+});
+</script>
+</body>
+</html>

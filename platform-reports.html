@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Reports — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/super-admin.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .chart-placeholder { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; text-align: center; color: var(--muted); min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .chart-placeholder i { margin-bottom: 12px; opacity: 0.3; }
+    .chart-placeholder h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .chart-placeholder p { font-size: 12px; }
+    .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+    @media(max-width:768px){ .charts-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<div class="app-layout super-admin-layout">
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="header"></div>
+    <main class="page-body">
+
+      <div class="page-header">
+        <div class="page-header-text">
+          <h1>Platform Reports <span class="super-admin-tag">Super Admin</span></h1>
+          <p>Platform-wide analytics, revenue, and school growth metrics.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-outline btn-sm" onclick="showToast('Export coming in Phase 9', 'info')">
+            <i data-lucide="download" style="width:15px;height:15px"></i>
+            Export Report
+          </button>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-placeholder">
+          <i data-lucide="bar-chart-2" style="width:48px;height:48px"></i>
+          <h4>Monthly Revenue Chart</h4>
+          <p>Revenue chart will render here in Phase 9</p>
+        </div>
+        <div class="chart-placeholder">
+          <i data-lucide="trending-up" style="width:48px;height:48px"></i>
+          <h4>School Growth Chart</h4>
+          <p>New schools per month — Phase 9</p>
+        </div>
+      </div>
+
+      <div class="sa-two-col">
+        <div class="data-section">
+          <div class="data-section-header">
+            <div class="data-section-title">Top Schools by Students</div>
+          </div>
+          <div id="topSchoolsTable"></div>
+        </div>
+        <div class="data-section">
+          <div class="data-section-header">
+            <div class="data-section-title">Recent Activity Feed</div>
+          </div>
+          <div style="padding:24px">
+            <div class="empty-state">
+              <i data-lucide="activity" style="width:32px;height:32px;opacity:0.3"></i>
+              <h3 style="font-size:14px">No recent activity</h3>
+              <p style="font-size:12px">Activity feed coming in Phase 9</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="components/modal.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="components/header.js"></script>
+<script src="components/statCard.js"></script>
+<script src="components/table.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  window.Auth?.requireRole(['super_admin']);
+  renderSidebar({ role: 'super_admin', activePage: 'platform-reports', schoolName: 'Platform', userName: 'Super Admin', userRole: 'Super Admin' });
+  renderHeader({ pageTitle: 'Platform Reports', schoolName: 'School Plus Platform' });
+  renderStatCards('statsGrid', [
+    { label: 'Total Revenue',     value: '—', icon: 'credit-card',  color: 'success' },
+    { label: 'Active Schools',    value: '—', icon: 'building-2',  color: 'blue'    },
+    { label: 'Total Students',    value: '—', icon: 'users',       color: 'purple'  },
+    { label: 'Avg Students/School',value: '—', icon: 'bar-chart-2', color: 'orange'  },
+  ]);
+  renderTable('topSchoolsTable', {
+    columns: [
+      { key: 'name',     label: 'School' },
+      { key: 'students', label: 'Students' },
+      { key: 'plan',     label: 'Plan', render: v => `<span class="plan-tag ${v}">${capitalize(v)}</span>` },
+    ],
+    rows: [],
+    emptyMsg: 'No data yet',
+  });
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+});
+</script>
+</body>
+</html>

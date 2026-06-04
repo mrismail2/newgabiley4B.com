@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trial Requests — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/super-admin.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-layout super-admin-layout">
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="header"></div>
+    <main class="page-body">
+
+      <div class="page-header">
+        <div class="page-header-text">
+          <h1>Trial Requests <span class="super-admin-tag">Super Admin</span></h1>
+          <p>Review and approve school trial requests. Approving a request creates the school account.</p>
+        </div>
+        <div class="page-actions">
+          <select class="form-select btn-sm" style="width:auto;padding:7px 14px;font-size:13px" id="statusFilter">
+            <option value="">All Requests</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div id="statsGrid"></div>
+
+      <!-- Requests Table -->
+      <div class="data-section">
+        <div class="data-section-header">
+          <div class="data-section-title">All Trial Requests</div>
+          <div class="data-section-actions">
+            <div class="search-wrap">
+              <i data-lucide="search" style="width:14px;height:14px"></i>
+              <input type="text" class="search-input" placeholder="Search school name..." id="reqSearch">
+            </div>
+          </div>
+        </div>
+        <div id="requestsTable"></div>
+        <div class="data-table-footer">
+          <span>Connect Supabase to load trial requests from the database</span>
+        </div>
+      </div>
+
+      <!-- How Approval Works -->
+      <div class="card" style="margin-top:20px">
+        <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">📣 How Approval Works (Phase 4)</h3>
+        <ol style="padding-left:20px;color:var(--muted);font-size:13px;line-height:2">
+          <li>Super Admin clicks <strong>Approve</strong> on a trial request</li>
+          <li>A new school record is created in the <code>schools</code> table</li>
+          <li>A School Admin user is created in Supabase Auth</li>
+          <li>School Admin receives login credentials via email</li>
+          <li>30-day trial period begins automatically</li>
+          <li>After 30 days, status becomes <code>trial_expired</code> unless upgraded</li>
+        </ol>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="components/modal.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="components/header.js"></script>
+<script src="components/statCard.js"></script>
+<script src="components/table.js"></script>
+<script src="js/trial-requests.js"></script>
+</body>
+</html>
