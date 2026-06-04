@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="header"></div>
+    <main class="page-body">
+
+      <div class="page-header">
+        <div class="page-header-text">
+          <h1>Students</h1>
+          <p>Manage all students enrolled in your school.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-outline btn-sm" onclick="showToast('Excel import coming in Phase 5', 'info')">
+            <i data-lucide="upload" style="width:15px;height:15px"></i>
+            Import
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="openAddStudentModal()">
+            <i data-lucide="user-plus" style="width:15px;height:15px"></i>
+            Add Student
+          </button>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div id="statsGrid"></div>
+
+      <!-- Students Table -->
+      <div class="data-section">
+        <div class="data-section-header">
+          <div class="data-section-title">All Students</div>
+          <div class="data-section-actions">
+            <select class="form-select btn-sm" style="width:auto;padding:7px 12px;font-size:13px" id="classFilter">
+              <option value="">All Classes</option>
+            </select>
+            <select class="form-select btn-sm" style="width:auto;padding:7px 12px;font-size:13px" id="statusFilter">
+              <option value="">All Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+            <div class="search-wrap">
+              <i data-lucide="search" style="width:14px;height:14px"></i>
+              <input type="text" class="search-input" placeholder="Search by name..." id="studentsSearch">
+            </div>
+          </div>
+        </div>
+        <div id="studentsTable"></div>
+        <div class="data-table-footer">
+          <span id="tableCount">0 students</span>
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="components/modal.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="components/header.js"></script>
+<script src="components/statCard.js"></script>
+<script src="components/table.js"></script>
+<script src="js/students.js"></script>
+</body>
+</html>

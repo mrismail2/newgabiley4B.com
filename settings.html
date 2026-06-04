@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .settings-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+    .settings-tab { padding: 12px 20px; font-size: 14px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all var(--transition); }
+    .settings-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .settings-panel { display: none; }
+    .settings-panel.active { display: block; }
+    .settings-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 20px; }
+    .settings-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+    .settings-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .toggle-row:last-child { border-bottom: none; }
+    .toggle-row-info h4 { font-size: 14px; font-weight: 600; }
+    .toggle-row-info p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .toggle { position: relative; width: 42px; height: 24px; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; inset: 0; background: var(--border); border-radius: 24px; cursor: pointer; transition: background var(--transition); }
+    .toggle-slider::before { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+    .toggle input:checked + .toggle-slider { background: var(--blue); }
+    .toggle input:checked + .toggle-slider::before { transform: translateX(18px); }
+    @media(max-width:600px){ .settings-form-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="header"></div>
+    <main class="page-body">
+
+      <div class="page-header">
+        <div class="page-header-text">
+          <h1>Settings</h1>
+          <p>Manage your school profile, users, and preferences.</p>
+        </div>
+      </div>
+
+      <div class="settings-tabs">
+        <div class="settings-tab active" onclick="switchTab('profile')">School Profile</div>
+        <div class="settings-tab" onclick="switchTab('users')">Users &amp; Roles</div>
+        <div class="settings-tab" onclick="switchTab('notifications')">Notifications</div>
+      </div>
+
+      <!-- Profile Tab -->
+      <div class="settings-panel active" id="tab-profile">
+        <div class="settings-card">
+          <h3>School Information</h3>
+          <div class="settings-form-grid">
+            <div class="form-group"><label class="form-label">School Name</label><input class="form-input" placeholder="Al-Noor Academy"></div>
+            <div class="form-group"><label class="form-label">School Type</label><select class="form-select"><option>School</option><option>College</option><option>University</option></select></div>
+            <div class="form-group"><label class="form-label">Contact Email</label><input class="form-input" type="email" placeholder="admin@school.com"></div>
+            <div class="form-group"><label class="form-label">Phone</label><input class="form-input" placeholder="+252 61 000 0000"></div>
+            <div class="form-group" style="grid-column:1/-1"><label class="form-label">Address</label><input class="form-input" placeholder="School address"></div>
+          </div>
+          <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="showToast('Profile update coming in Phase 2', 'info')">
+            Save Changes
+          </button>
+        </div>
+      </div>
+
+      <!-- Users Tab -->
+      <div class="settings-panel" id="tab-users">
+        <div class="settings-card">
+          <h3>School Users</h3>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:16px">Manage staff accounts within your school. Each user is assigned a role and can only access their school data.</p>
+          <button class="btn btn-primary btn-sm" onclick="showToast('User management coming in Phase 2', 'info')">
+            <i data-lucide="user-plus" style="width:15px;height:15px"></i>
+            Add User
+          </button>
+        </div>
+      </div>
+
+      <!-- Notifications Tab -->
+      <div class="settings-panel" id="tab-notifications">
+        <div class="settings-card">
+          <h3>Notification Preferences</h3>
+          <div class="toggle-row">
+            <div class="toggle-row-info"><h4>Payment Reminders</h4><p>Send reminders for unpaid fees</p></div>
+            <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-row-info"><h4>Attendance Alerts</h4><p>Alert parents of absent students</p></div>
+            <label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-row-info"><h4>Exam Result Notifications</h4><p>Notify parents when results are published</p></div>
+            <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+          </div>
+          <div class="toggle-row">
+            <div class="toggle-row-info"><h4>Monthly Reports</h4><p>Auto-generate monthly summary reports</p></div>
+            <label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label>
+          </div>
+          <button class="btn btn-primary btn-sm" style="margin-top:20px" onclick="showToast('Notification settings coming in Phase 2', 'info')">
+            Save Preferences
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="components/modal.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="components/header.js"></script>
+<script src="components/statCard.js"></script>
+<script src="components/table.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  window.Auth?.requireAuth();
+  const session = window.Auth?.getSession() || { role: 'school_admin', school_name: 'My School', full_name: 'Admin' };
+  renderSidebar({ role: session.role || 'school_admin', activePage: 'settings', schoolName: session.school_name || 'My School', userName: session.full_name || 'Admin', userRole: capitalize(session.role || 'school_admin') });
+  renderHeader({ pageTitle: 'Settings', schoolName: session.school_name || 'My School' });
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+});
+function switchTab(id) {
+  document.querySelectorAll('.settings-tab').forEach((t, i) => t.classList.toggle('active', ['profile','users','notifications'][i] === id));
+  document.querySelectorAll('.settings-panel').forEach(p => p.classList.toggle('active', p.id === 'tab-' + id));
+}
+</script>
+</body>
+</html>

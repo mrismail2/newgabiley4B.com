@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="header"></div>
+    <main class="page-body">
+
+      <div class="page-header">
+        <div class="page-header-text">
+          <h1>Attendance</h1>
+          <p>Track daily student attendance by class and date.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-outline btn-sm" onclick="showToast('Attendance report coming in Phase 7', 'info')">
+            <i data-lucide="download" style="width:15px;height:15px"></i>
+            Export
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="showToast('Mark attendance coming in Phase 7', 'info')">
+            <i data-lucide="clipboard-check" style="width:15px;height:15px"></i>
+            Mark Attendance
+          </button>
+        </div>
+      </div>
+
+      <div id="statsGrid"></div>
+
+      <div class="data-section">
+        <div class="data-section-header">
+          <div class="data-section-title">Attendance Records</div>
+          <div class="data-section-actions">
+            <input type="date" class="form-input" style="width:auto;padding:7px 12px;font-size:13px" id="dateFilter">
+            <select class="form-select" style="width:auto;padding:7px 12px;font-size:13px" id="classFilter">
+              <option value="">All Classes</option>
+            </select>
+            <select class="form-select" style="width:auto;padding:7px 12px;font-size:13px" id="statusFilter">
+              <option value="">All Status</option>
+              <option value="present">Present</option>
+              <option value="absent">Absent</option>
+              <option value="late">Late</option>
+            </select>
+          </div>
+        </div>
+        <div id="attendanceTable"></div>
+        <div class="data-table-footer">
+          <span>Connect Supabase to load real attendance data</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="components/modal.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="components/header.js"></script>
+<script src="components/statCard.js"></script>
+<script src="components/table.js"></script>
+<script src="js/attendance.js"></script>
+</body>
+</html>

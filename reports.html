@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .report-type-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 28px; }
+    .report-type-card { background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius); padding: 24px; cursor: pointer; transition: all var(--transition); text-align: center; }
+    .report-type-card:hover, .report-type-card.selected { border-color: var(--blue); background: #EFF6FF; }
+    .report-type-card i { color: var(--blue); margin-bottom: 12px; }
+    .report-type-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .report-type-card p { font-size: 12px; color: var(--muted); }
+    .report-config { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .report-config h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+    .report-config-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    @media(max-width:768px){ .report-config-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="header"></div>
+    <main class="page-body">
+
+      <div class="page-header">
+        <div class="page-header-text">
+          <h1>Reports</h1>
+          <p>Generate and export school reports in PDF or Excel format.</p>
+        </div>
+      </div>
+
+      <div class="report-type-grid">
+        <div class="report-type-card selected">
+          <i data-lucide="calendar-check" style="width:32px;height:32px"></i>
+          <h4>Attendance Report</h4>
+          <p>Daily, weekly, or monthly attendance summary</p>
+        </div>
+        <div class="report-type-card">
+          <i data-lucide="credit-card" style="width:32px;height:32px"></i>
+          <h4>Payment Report</h4>
+          <p>Paid, unpaid, and revenue summary</p>
+        </div>
+        <div class="report-type-card">
+          <i data-lucide="file-text" style="width:32px;height:32px"></i>
+          <h4>Exam Results</h4>
+          <p>Student results and grade analysis</p>
+        </div>
+        <div class="report-type-card">
+          <i data-lucide="users" style="width:32px;height:32px"></i>
+          <h4>Student Report</h4>
+          <p>Student enrollment and status overview</p>
+        </div>
+      </div>
+
+      <div class="report-config">
+        <h3>Configure Report</h3>
+        <div class="report-config-grid">
+          <div class="form-group">
+            <label class="form-label">Date From</label>
+            <input type="date" class="form-input" id="dateFrom">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date To</label>
+            <input type="date" class="form-input" id="dateTo">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Class Filter</label>
+            <select class="form-select" id="classFilter">
+              <option value="">All Classes</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-primary" id="generateReportBtn">
+            <i data-lucide="file-text" style="width:16px;height:16px"></i>
+            Generate Report
+          </button>
+          <button class="btn btn-outline" onclick="showToast('PDF export coming in Phase 9', 'info')">
+            <i data-lucide="file" style="width:16px;height:16px"></i>
+            Export PDF
+          </button>
+          <button class="btn btn-outline" onclick="showToast('Excel export coming in Phase 9', 'info')">
+            <i data-lucide="table-2" style="width:16px;height:16px"></i>
+            Export Excel
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="components/modal.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="components/header.js"></script>
+<script src="components/statCard.js"></script>
+<script src="components/table.js"></script>
+<script src="js/reports.js"></script>
+</body>
+</html>

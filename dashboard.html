@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — School Plus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar"></div>
+  <div class="main-content">
+    <div id="header"></div>
+    <main class="page-body">
+
+      <!-- Trial notice (Phase 4 will make this dynamic) -->
+      <div class="trial-banner">
+        <i data-lucide="clock" style="width:16px;height:16px"></i>
+        <span>Your <strong>30-day free trial</strong> is active. <a href="subscriptions.html">Upgrade your plan</a> to continue after trial ends.</span>
+      </div>
+
+      <div class="page-header">
+        <div class="page-header-text">
+          <h1>Dashboard</h1>
+          <p>Welcome back! Here’s what’s happening at your school.</p>
+        </div>
+        <div class="page-actions">
+          <a href="students.html" class="btn btn-primary btn-sm">
+            <i data-lucide="user-plus" style="width:15px;height:15px"></i>
+            Add Student
+          </a>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div id="statsGrid"></div>
+
+      <!-- Recent Students Table -->
+      <div class="data-section">
+        <div class="data-section-header">
+          <div class="data-section-title">Recent Students</div>
+          <div class="data-section-actions">
+            <div class="search-wrap">
+              <i data-lucide="search" style="width:14px;height:14px"></i>
+              <input type="text" class="search-input" placeholder="Search students..." id="dashSearch">
+            </div>
+            <a href="students.html" class="btn btn-outline btn-sm">View All</a>
+          </div>
+        </div>
+        <div id="recentTable"></div>
+        <div class="data-table-footer">
+          <span>Showing recent entries — <a href="students.html" style="color:var(--blue)">view all students</a></span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/utils.js"></script>
+<script src="components/toast.js"></script>
+<script src="components/modal.js"></script>
+<script src="components/sidebar.js"></script>
+<script src="components/header.js"></script>
+<script src="components/statCard.js"></script>
+<script src="components/table.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
