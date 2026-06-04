@@ -1,0 +1,19 @@
+# Supabase credentials - NEVER commit real values
+# Copy js/config.js to js/config.example.js with placeholders before committing
+js/config.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Dependencies (if any future build step is added)
+node_modules/
+
+# Build output
+dist/
+build/
